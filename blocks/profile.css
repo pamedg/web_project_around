@@ -1,3 +1,7 @@
+.profile {
+  display: flex;
+}
+
 .profile__avatar {
   max-width: 120px;
   height: 120px;
@@ -7,7 +11,7 @@
 .profile__info {
   color: #ffffff;
   max-width: 414px;
-  padding-left: 220px;
+  padding-left: 20px;
   padding-top: 10px;
 }
 
@@ -27,4 +31,16 @@
   font-weight: 400;
   font-size: 18px;
   line-height: 21.78px;
+}
+
+.profile__bottom {
+  border-color: #ffffff;
+  max-width: 24px;
+  height: 24px;
+  padding-left: 20px;
+  padding-top: 60px;
+}
+
+.profile__bottom-add {
+  padding-left: 90px;
 }
