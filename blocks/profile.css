@@ -1,0 +1,30 @@
+.profile__avatar {
+  max-width: 120px;
+  height: 120px;
+  padding-left: 100px;
+}
+
+.profile__info {
+  color: #ffffff;
+  max-width: 414px;
+  padding-left: 220px;
+  padding-top: 10px;
+}
+
+.profile__name {
+  max-width: 373px;
+  height: 43px;
+  font-family: "Inter";
+  font-weight: 500;
+  font-size: 42px;
+  line-height: 56px;
+}
+
+.profile__occupation {
+  max-width: 372px;
+  height: 18px;
+  font-family: "Inter";
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21.78px;
+}

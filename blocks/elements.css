@@ -1,0 +1,13 @@
+.elements__grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+  max-width: 882px;
+  height: 743px;
+}
+
+.element__image {
+  max-width: 282px;
+  height: 282px;
+}
