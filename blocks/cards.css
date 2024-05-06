@@ -1,4 +1,4 @@
-.elements__grid {
+.cards__grid {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -7,7 +7,15 @@
   height: 743px;
 }
 
-.element__image {
+.card__image {
   max-width: 282px;
   height: 282px;
+}
+
+.card__bottom-trash {
+}
+
+.card__footer {
+  color: #ffffff;
+  font-family: "Inter";
 }
