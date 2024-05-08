@@ -7,15 +7,27 @@
   height: 743px;
 }
 
+.card {
+  position: relative;
+}
+
 .card__image {
   max-width: 282px;
   height: 282px;
 }
 
 .card__bottom-trash {
+  position: absolute;
+  right: 0;
+  padding-top: 15px;
 }
 
 .card__footer {
   color: #ffffff;
   font-family: "Inter";
+  margin: auto;
+}
+
+.card__bottom-like {
+  position: absolute;
 }
