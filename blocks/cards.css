@@ -10,11 +10,16 @@
 
 .card {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  max-height: 361px;
 }
 
 .card__image {
   max-width: 282px;
+  width: 282px;
   height: 282px;
+  object-fit: cover;
 }
 
 .card__bottom-trash {
@@ -24,7 +29,7 @@
 }
 
 .card__footer {
-  color: #ffffff;
+  /*color: #ffffff;*/
   font-family: "Inter";
   font-weight: 900;
   font-size: 24px;
@@ -34,6 +39,10 @@
   height: 23px;
 }
 
+.card__description {
+  background-color: #ffffff;
+  display: flex;
+}
+
 .card__bottom-like {
-  position: absolute;
 }
