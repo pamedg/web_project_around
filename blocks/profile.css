@@ -5,6 +5,7 @@
   margin: auto;
   padding-top: 36.25px;
   padding-bottom: 50px;
+  align-items: center;
 }
 
 .profile__avatar {
@@ -17,14 +18,9 @@
 
 .profile__info {
   color: #ffffff;
-  max-width: 414px;
-  padding-left: 20px;
-  padding-top: 10px;
 }
 
 .profile__name {
-  max-width: 373px;
-  height: 43px;
   font-family: "Inter";
   font-weight: 500;
   font-size: 42px;
@@ -32,7 +28,6 @@
 }
 
 .profile__occupation {
-  max-width: 372px;
   height: 18px;
   font-family: "Inter";
   font-weight: 400;
@@ -44,10 +39,7 @@
   border-color: #ffffff;
   max-width: 24px;
   height: 24px;
-  padding-left: 20px;
-  padding-top: 60px;
 }
 
 .profile__bottom-add {
-  padding-left: 90px;
 }
