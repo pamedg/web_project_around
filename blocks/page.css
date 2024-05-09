@@ -1,5 +1,5 @@
 .page {
-  height: 1270px;
+  min-height: 100vh;
   background-color: #000000;
   margin: auto;
 }
