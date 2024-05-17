@@ -1,0 +1,41 @@
+.popup {
+  display: none;
+  position: fixed;
+  z-index: 10;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  background-color: #111;
+  flex-direction: column;
+  width: 430px;
+  height: 330px;
+}
+.popup__form {
+  width: 430px;
+  height: 330px;
+  margin: auto;
+}
+.popup_show {
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  margin: auto;
+  padding-left: 64px;
+}
+
+.popup__image-buttom {
+  position: absolute;
+  top: 30px;
+  right: 420px;
+  cursor: pointer;
+}
+
+.popup__picture {
+  width: 400px;
+  height: 500px;
+  margin-top: 80px;
+}
+
+.popup__picture-name {
+}

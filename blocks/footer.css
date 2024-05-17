@@ -1,13 +1,14 @@
 .footer {
   color: #545454;
-  padding-left: 197px;
+  max-width: 882px;
+  margin: auto;
   font-family: "Inter";
   font-weight: 400;
   font-size: 18px;
   line-height: 21.78px;
+  padding: 67px 0 45px;
 }
 
 .footer__text {
   margin: 0 auto;
-  margin-top: 20px;
 }

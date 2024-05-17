@@ -38,6 +38,9 @@
   margin: auto;
   width: 246px;
   height: 23px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .card__description {
@@ -59,4 +62,12 @@
   width: 20px;
   height: 20px;
   margin-right: 20px;
+}
+
+.card__bottom-like:active {
+  width: 21px;
+  height:19px; 
+  viewBox:0 0 21 19;
+  fill:none;
+  xmlns="http://www.w3.org/2000/svg">
 }
