@@ -1,11 +1,13 @@
 .form__close-button {
-  position: relative;
+  position: absolute;
   width: 40.7px;
   height: 40.7px;
   color: #ffffff;
+  top: -40px;
+  right: -40px;
 }
 
-.form popup__form {
+.form {
   margin: auto;
   width: 430px;
   height: 330px;
@@ -16,6 +18,7 @@
   font-weight: 900;
   font-size: 24px;
   line-height: 29.05px;
+  margin: 0;
   color: #000000;
 }
 
@@ -23,12 +26,12 @@
   width: 358px;
   height: 27.26px;
   margin: auto;
+  margin: 0;
   flood-color: #c4c4c4;
   font-family: "Inter";
   font-weight: 400;
   font-size: 14px;
   line-height: 16.94px;
-  margin-bottom: 29.74px;
 }
 
 .form__button {
@@ -39,6 +42,10 @@
   font-family: "Inter";
   font-weight: 400;
   font-size: 18px;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   line-height: 21.78px;
-  padding-bottom: 36.51px;
 }

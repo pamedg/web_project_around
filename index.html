@@ -2,7 +2,7 @@
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="<width=device-width,initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <meta name="author" content="Pamela Diaz Gonzalez" />
     <meta name="keywords" content="Around" />
     <meta name="description" content="around" />
@@ -36,44 +36,6 @@
           alt="boton para añadir"
           class="profile__bottom-add"
         />
-        <div class="popup popup_show" id="popup-profile">
-          <form class="form popup__form" id="form-profile" novalidate>
-            <img
-              class="form__close-button"
-              src="images/Close Icon.svg"
-              alt="boton para cerrar"
-              id="close-profile-form"
-            />
-            <h2 class="form__title">Nuevo lugar</h2>
-
-            <input
-              class="form__input"
-              type="text"
-              id="input-name"
-              required
-              minlength="2"
-              maxlength="40"
-              name="heading"
-              placeholder="Título"
-            />
-            <span class="input-error input-name-error"></span>
-
-            <input
-              class="form__input"
-              type="text"
-              id="input-about"
-              required
-              minlength="2"
-              maxlength="200"
-              name="link"
-              placeholder="Enlace a la imagen"
-            />
-            <span class="input-error input-about-error"></span>
-            <button class="form__button" type="submit" id="profile-form-button">
-              Crear
-            </button>
-          </form>
-        </div>
       </section>
       <section class="cards__grid">
         <div class="card">
@@ -201,6 +163,44 @@
       <footer class="footer">
         <p class="footer__text">© 2024 Pamela Diaz</p>
       </footer>
+      <div class="popup popup_show" id="popup-profile">
+        <form class="form popup__form" id="form-profile" novalidate>
+          <img
+            class="form__close-button"
+            src="images/Close Icon.svg"
+            alt="boton para cerrar"
+            id="close-profile-form"
+          />
+          <h2 class="form__title">Editar Perfil</h2>
+
+          <input
+            class="form__input"
+            type="text"
+            id="input-name"
+            required
+            minlength="2"
+            maxlength="40"
+            name="heading"
+            placeholder="Nombre"
+          />
+          <span class="input-error input-name-error"></span>
+
+          <input
+            class="form__input"
+            type="text"
+            id="input-about"
+            required
+            minlength="2"
+            maxlength="200"
+            name="link"
+            placeholder=" Acerca de mí"
+          />
+          <span class="input-error input-about-error"></span>
+          <button class="form__button" type="submit" id="profile-form-button">
+            Guardar
+          </button>
+        </form>
+      </div>
     </div>
     <script src="./scripts/index.js"></script>
   </body>
