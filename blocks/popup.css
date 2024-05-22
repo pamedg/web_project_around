@@ -10,8 +10,6 @@
   flex-direction: column;
   top: 0;
   left: 0;
-  justify-content: center;
-  align-items: center;
   margin: auto;
 }
 .popup__form {
