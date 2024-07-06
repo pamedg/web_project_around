@@ -205,6 +205,47 @@
           </button>
         </form>
       </div>
+
+      <div class="popup__add popup_show" id="popup-profile-add">
+        <form class="form popup__form" id="form-profile-add" novalidate>
+          <img
+            class="form__close-button"
+            src="images/CloseIcon.svg"
+            alt="boton para cerrar"
+            id="close-profile-form-add"
+          />
+          <h2 class="form__title">New Place</h2>
+          <div>
+            <input
+              class="form__input"
+              type="text"
+              id="input-place"
+              required
+              minlength="2"
+              maxlength="40"
+              name="heading"
+              placeholder="Title"
+            />
+            <span class="input-error input-title-error"></span>
+          </div>
+          <div>
+            <input
+              class="form__input"
+              type="text"
+              id="input-image"
+              required
+              minlength="2"
+              maxlength="200"
+              name="link"
+              placeholder=" Image URL"
+            />
+            <span class="input-error input-about-error"></span>
+          </div>
+          <button class="form__button" type="submit" id="profile-form-button">
+            Save
+          </button>
+        </form>
+      </div>
     </div>
     <script src="./scripts/index.js"></script>
   </body>

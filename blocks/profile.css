@@ -52,6 +52,9 @@
   margin-left: auto;
 }
 
+.profile_add {
+}
+
 @media screen AND (max-width: 500px) AND (min-width: 320px) {
   .profile {
     flex-direction: column;
