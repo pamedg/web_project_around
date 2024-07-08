@@ -43,14 +43,14 @@ function handleOpenProfilePopup() {
 }
 
 function handleCloseProfilePopup() {
-  popupProfile.classlist.remove("popup_show");
+  popupProfile.classList.remove("popup_show");
 }
 
-function handleCloseProfilePopup() {
-  popupAddCard.classlist.add("popup_show");
+function handleOpenCardPopup() {
+  popupAddCard.classList.add("popup_show");
 }
 
-function handleCloseProfilePopup() {
+function handleCloseCardPopup() {
   popupAddCard.classList.remove("popup_show");
 }
 
