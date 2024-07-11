@@ -12,6 +12,8 @@ const closeProfilePopupButtonAdd = document.querySelector(
   "#close-profile-form-add"
 );
 const template = document.querySelector(".template-card");
+const cardArea = document.querySelector(".card");
+
 const initialCards = [
   {
     name: "San Francisco, USA",
@@ -40,8 +42,23 @@ const initialCards = [
 ];
 
 function cardGenerator(name, link) {
-  const card = template.cloneNode(true);
+  const card = template.cloneNode(true).content.querySelector(".card");
+  const cardImage = card.querySelector(".card__image");
+  const cardTitle = card.querySelector(".card__footer");
+  const btnDelete = card.querySelector(".card__bottom-trash");
+  btnDelete.addEventListener("click", function () {
+    card.remove();
+  });
+  const btnLike = card.querySelector(".card__bottom-like");
+  cardImage.src = link;
+  cardTitle.textContent = name;
+  cardImage.alt = name;
+  cardArea.append(card);
 }
+
+initialCards.forEach(function (item) {
+  cardGenerator();
+});
 
 function handleOpenProfilePopup() {
   popupProfile.classList.add("popup_show");
