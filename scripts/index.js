@@ -11,6 +11,7 @@ const profileButtonAdd = document.querySelector(".profile__bottom-add");
 const closeProfilePopupButtonAdd = document.querySelector(
   "#close-profile-form-add"
 );
+const template = document.querySelector(".template-card");
 const initialCards = [
   {
     name: "San Francisco, USA",
@@ -37,6 +38,10 @@ const initialCards = [
     link: "./images/Parisfrance.png",
   },
 ];
+
+function cardGenerator(name, link) {
+  const card = template.cloneNode(true);
+}
 
 function handleOpenProfilePopup() {
   popupProfile.classList.add("popup_show");
