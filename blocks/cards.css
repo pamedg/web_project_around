@@ -53,5 +53,12 @@
 .card__bottom-like {
   width: 20px;
   height: 20px;
+  background-image: url(../images/Like.svg);
+  background-repeat: no-repeat;
+  background-position: center;
   margin-right: 20px;
+}
+
+.card__bottom-like_active {
+  background-image: url(../images/likeclick.svg);
 }

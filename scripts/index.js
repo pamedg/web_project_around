@@ -12,7 +12,7 @@ const closeProfilePopupButtonAdd = document.querySelector(
   "#close-profile-form-add"
 );
 const template = document.querySelector(".template-card");
-const cardArea = document.querySelector(".card");
+const cardArea = document.querySelector(".card__grid");
 
 const initialCards = [
   {
@@ -50,6 +50,9 @@ function cardGenerator(name, link) {
     card.remove();
   });
   const btnLike = card.querySelector(".card__bottom-like");
+  btnLike.addEventListener("click", function () {
+    btnLike.classList.toggle("card__bottom-like_active");
+  });
   cardImage.src = link;
   cardTitle.textContent = name;
   cardImage.alt = name;
@@ -57,7 +60,7 @@ function cardGenerator(name, link) {
 }
 
 initialCards.forEach(function (item) {
-  cardGenerator();
+  cardGenerator(item.name, item.link);
 });
 
 function handleOpenProfilePopup() {
