@@ -1,8 +1,10 @@
 const popupProfile = document.querySelector("#popup-profile");
 const popupAddCard = document.querySelector("#popup-add");
 const profileButton = document.querySelector(".profile__bottom");
+const openCardForm = document.querySelector("#.profile-form-button");
 const closeProfilePopupButton = document.querySelector("#close-profile-form");
 const formProfile = document.querySelector("#form-profile");
+const formCards = document.querySelector("#form-addcard");
 const inputName = document.querySelector("#input-name");
 const profileName = document.querySelector(".profile__name");
 const profileOccupation = document.querySelector(".profile__occupation");
@@ -90,3 +92,10 @@ profileButton.addEventListener("click", handleOpenProfilePopup);
 profileButtonAdd.addEventListener("click", handleOpenProfilePopup);
 closeProfilePopupButton.addEventListener("click", handleCloseProfilePopup);
 formProfile.addEventListener("submit", handleProfileFormSubmit);
+openCardForm.addEventListener("click" function (){
+
+});
+formCardsAdd.addEventListener("submit", function (evt) {
+  evt.preventDefault();
+  cardGenerator();
+});
