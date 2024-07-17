@@ -105,4 +105,5 @@ formCardsAdd.addEventListener("submit", function (evt) {
   const cardToAdd = cardGenerator();
   cardArea.prepend(cardToAdd);
   handleCloseCardPopup();
+  popupCards.remove("popup_show");
 });
