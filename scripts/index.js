@@ -58,11 +58,12 @@ function cardGenerator(name, link) {
   cardImage.src = link;
   cardTitle.textContent = name;
   cardImage.alt = name;
-  cardArea.append(card);
+  return card;
 }
 
 initialCards.forEach(function (item) {
-  cardGenerator(item.name, item.link);
+  const newCard = cardGenerator(item.name, item.link);
+  cardArea.append(newCard);
 });
 
 function handleOpenProfilePopup() {
@@ -93,12 +94,15 @@ profileButtonAdd.addEventListener("click", handleOpenCardPopup);
 closeProfilePopupButton.addEventListener("click", handleCloseProfilePopup);
 closeProfilePopupButtonAdd.addEventListener("click", handleCloseCardPopup);
 formProfile.addEventListener("submit", handleProfileFormSubmit);
-openCardForm.addEventListener("click", function () {});
+openCardForm.addEventListener("click", function () {
+  popupCards.classList.add(".popup_show");
+});
 
 const formCardsAdd = document.querySelector("#form-add");
 
 formCardsAdd.addEventListener("submit", function (evt) {
   evt.preventDefault();
-  cardGenerator();
+  const cardToAdd = cardGenerator();
+  cardArea.prepend(cardToAdd);
   handleCloseCardPopup();
 });
