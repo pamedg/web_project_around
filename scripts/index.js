@@ -15,6 +15,7 @@ const closeProfilePopupButtonAdd = document.querySelector(
 );
 const template = document.querySelector(".template-card");
 const cardArea = document.querySelector(".card__grid");
+const popUpImage = card.querySelector(".popup-image");
 
 const initialCards = [
   {
@@ -87,6 +88,12 @@ function handleProfileFormSubmit(evt) {
   profileName.textContent = inputName.value;
   profileOccupation.textContent = inputAbout.value;
   handleCloseProfilePopup();
+}
+
+function openPopup(name, link) {
+  popUpImage (
+  popUpImage.src = link;
+  popUpImage.alt = name;)
 }
 
 profileButton.addEventListener("click", handleOpenProfilePopup);
