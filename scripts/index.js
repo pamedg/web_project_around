@@ -15,8 +15,11 @@ const closeProfilePopupButtonAdd = document.querySelector(
 );
 const template = document.querySelector(".template-card");
 const cardArea = document.querySelector(".card__grid");
-const popUpImage = card.querySelector(".popup-image");
-
+const popupImage = document.querySelector("#popup-image");
+const popupImageTag = document.querySelector(".popup__image");
+const popupTitleTag = document.querySelector(".popup__title");
+const cardInputName = document.querySelector("#input-place");
+const cardInputLink = document.querySelector("#input-link");
 const initialCards = [
   {
     name: "San Francisco, USA",
@@ -44,6 +47,12 @@ const initialCards = [
   },
 ];
 
+function openPopup(name, link) {
+  popupImage.classList.add("popup_show");
+  popupImageTag.src = link;
+  popupTitleTag.textContent = name;
+}
+
 function cardGenerator(name, link) {
   const card = template.cloneNode(true).content.querySelector(".card");
   const cardImage = card.querySelector(".card__image");
@@ -55,6 +64,9 @@ function cardGenerator(name, link) {
   const btnLike = card.querySelector(".card__bottom-like");
   btnLike.addEventListener("click", function () {
     btnLike.classList.toggle("card__bottom-like_active");
+  });
+  cardImage.addEventListener("click", function () {
+    openPopup(name, link);
   });
   cardImage.src = link;
   cardTitle.textContent = name;
@@ -90,27 +102,21 @@ function handleProfileFormSubmit(evt) {
   handleCloseProfilePopup();
 }
 
-function openPopup(name, link) {
-  popUpImage (
-  popUpImage.src = link;
-  popUpImage.alt = name;)
-}
-
 profileButton.addEventListener("click", handleOpenProfilePopup);
 profileButtonAdd.addEventListener("click", handleOpenCardPopup);
 closeProfilePopupButton.addEventListener("click", handleCloseProfilePopup);
 closeProfilePopupButtonAdd.addEventListener("click", handleCloseCardPopup);
 formProfile.addEventListener("submit", handleProfileFormSubmit);
 openCardForm.addEventListener("click", function () {
-  popupCards.classList.add(".popup_show");
+  popupAddCard.classList.add(".popup_show");
 });
 
 const formCardsAdd = document.querySelector("#form-add");
 
 formCardsAdd.addEventListener("submit", function (evt) {
   evt.preventDefault();
-  const cardToAdd = cardGenerator();
+  const cardToAdd = cardGenerator(cardInputName.value, cardInputLink.value);
   cardArea.prepend(cardToAdd);
   handleCloseCardPopup();
-  popupCards.remove("popup_show");
+  popupAddCard.classList.remove("popup_show");
 });
