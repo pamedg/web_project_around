@@ -20,6 +20,7 @@ const popupImageTag = document.querySelector(".popup__image");
 const popupTitleTag = document.querySelector(".popup__title");
 const cardInputName = document.querySelector("#input-place");
 const cardInputLink = document.querySelector("#input-image");
+const closePopupImage = document.querySelector(".popup__close");
 const initialCards = [
   {
     name: "San Francisco, USA",
