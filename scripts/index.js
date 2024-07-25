@@ -103,6 +103,10 @@ function handleProfileFormSubmit(evt) {
   handleCloseProfilePopup();
 }
 
+function handleClosePopupImage() {
+  closePopupImage.classList.remove("popup_close");
+}
+
 profileButton.addEventListener("click", handleOpenProfilePopup);
 profileButtonAdd.addEventListener("click", handleOpenCardPopup);
 closeProfilePopupButton.addEventListener("click", handleCloseProfilePopup);
@@ -111,6 +115,7 @@ formProfile.addEventListener("submit", handleProfileFormSubmit);
 openCardForm.addEventListener("click", function () {
   popupAddCard.classList.add(".popup_show");
 });
+closePopupImage.addEventListener("click", handleClosePopupImage);
 
 const formCardsAdd = document.querySelector("#form-add");
 

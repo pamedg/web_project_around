@@ -60,6 +60,8 @@
 
 .popup__title {
   color: #fff;
+  display: flex;
+  flex-direction: column;
 }
 
 .popup__close {
