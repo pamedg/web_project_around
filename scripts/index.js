@@ -104,7 +104,7 @@ function handleProfileFormSubmit(evt) {
 }
 
 function handleClosePopupImage() {
-  closePopupImage.classList.remove("popup_close");
+  popupImage.classList.remove("popup_show");
 }
 
 profileButton.addEventListener("click", handleOpenProfilePopup);
