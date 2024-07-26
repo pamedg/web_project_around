@@ -46,13 +46,12 @@
   width: 24px;
   height: 24px;
   margin-left: 20px;
+  cursor: pointer;
 }
 
 .profile__bottom-add {
   margin-left: auto;
-}
-
-.profile_add {
+  cursor: pointer;
 }
 
 @media screen AND (max-width: 500px) AND (min-width: 320px) {

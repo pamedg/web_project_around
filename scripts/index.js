@@ -17,7 +17,7 @@ const closeProfilePopupButtonAdd = document.querySelector(
   "#close-profile-form-add"
 );
 const template = document.querySelector(".template-card");
-const cardArea = document.querySelector(".card__grid");
+const cardArea = document.querySelector(".card-grid");
 const popupImage = document.querySelector("#popup-image");
 const popupImageTag = document.querySelector(".popup__image");
 const popupTitleTag = document.querySelector(".popup__title");

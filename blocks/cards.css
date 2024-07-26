@@ -5,7 +5,7 @@
   border-radius: 20px;
 }
 
-.card__grid {
+.card-grid {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -23,8 +23,9 @@
 
 .card__bottom-trash {
   position: absolute;
-  right: 0;
-  padding-top: 15px;
+  right: 15px;
+  padding: 15px;
+  cursor: pointer;
 }
 
 .card__footer {
@@ -57,6 +58,8 @@
   background-repeat: no-repeat;
   background-position: center;
   margin-right: 20px;
+  cursor: pointer;
+  right: 15px;
 }
 
 .card__bottom-like_active {
