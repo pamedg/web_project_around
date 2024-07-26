@@ -1,7 +1,10 @@
+/*como crear nombres de  mis variables----a quien afecta + tipo de elemento */
 const popupProfile = document.querySelector("#popup-profile");
 const popupAddCard = document.querySelector("#popup-add");
 const profileButton = document.querySelector(".profile__bottom");
-const openCardForm = document.querySelector("#profile-form-button");
+const openCardForm = document.querySelector(
+  "#profile-form-button"
+); /*es un boton, OJO si se llega a corregir */
 const closeProfilePopupButton = document.querySelector("#close-profile-form");
 const formProfile = document.querySelector("#form-profile");
 const formCards = document.querySelector("#form-addcard");
@@ -49,9 +52,9 @@ const initialCards = [
 ];
 
 function openPopup(name, link) {
-  popupImage.classList.add("popup_show");
   popupImageTag.src = link;
   popupTitleTag.textContent = name;
+  popupImage.classList.add("popup_show");
 }
 
 function cardGenerator(name, link) {
