@@ -80,7 +80,7 @@
           <h2 class="form__title">Editar Perfil</h2>
           <div>
             <input
-              class="form__input"
+              class="form__input form__input_type_error"
               type="text"
               id="input-name"
               required
@@ -89,11 +89,13 @@
               name="heading"
               placeholder="Nombre"
             />
-            <span class="input-error input-name-error"></span>
+            <span class="input-error input-name-error form__error"
+              >mensaje de error</span
+            >
           </div>
           <div>
             <input
-              class="form__input"
+              class="form__input form__input_type_error"
               type="text"
               id="input-about"
               required
@@ -102,7 +104,9 @@
               name="link"
               placeholder=" Acerca de mí"
             />
-            <span class="input-error input-about-error"></span>
+            <span class="input-error input-about-error form__error"
+              >mensaje de error</span
+            >
           </div>
           <button class="form__button" type="submit" id="profile-form-button">
             Guardar
@@ -136,7 +140,7 @@
           <div>
             <input
               class="form__input"
-              type="text"
+              type="url"
               id="input-image"
               required
               minlength="2"
@@ -153,5 +157,6 @@
       </div>
     </div>
     <script src="./scripts/index.js"></script>
+    <script src="./scripts/validation.js"></script>
   </body>
 </html>
