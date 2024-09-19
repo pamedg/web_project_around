@@ -33,6 +33,17 @@ const hasInvalidInput = (inputList) => {
   });
 };
 
+const toggleButtonState = (inputList, buttonElement, settings) => {
+  console.log(hasInvalidInput(inputList));
+  if (hasInvalidInput(inputList)) {
+    buttonElement.classList.add(settings.inactiveButtonClass);
+  } else {
+    buttonElement.classList.remove("button_inactive");
+  }
+};
+
+toggleButtonState(inputList, buttonElement, settings);
+
 const setEventListeners = (formElement, settings) => {
   console.log("2ejecutamosevenlisteners");
   const inputList = Array.from(
@@ -42,6 +53,7 @@ const setEventListeners = (formElement, settings) => {
   inputList.forEach((inputElement) => {
     inputElement.addEventListener("input", function () {
       checkInputValidity(formElement, inputElement, settings);
+      toggleButtonState(inputList, buttonElement, settings);
     });
   });
 };
