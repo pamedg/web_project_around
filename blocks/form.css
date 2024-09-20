@@ -67,5 +67,6 @@
 }
 
 .form__button_disabled {
-  color: #c4c4c4;
+  background-color: #c4c4c4;
+  pointer-events: none;
 }

@@ -38,16 +38,20 @@ const toggleButtonState = (inputList, buttonElement, settings) => {
   if (hasInvalidInput(inputList)) {
     buttonElement.classList.add(settings.inactiveButtonClass);
   } else {
-    buttonElement.classList.remove("button_inactive");
+    buttonElement.classList.remove(settings.inactiveButtonClass);
   }
 };
 
-toggleButtonState(inputList, buttonElement, settings);
+//toggleButtonState(inputList, buttonElement, settings);
 
 const setEventListeners = (formElement, settings) => {
   console.log("2ejecutamosevenlisteners");
   const inputList = Array.from(
     formElement.querySelectorAll(settings.inputSelector)
+  );
+
+  const buttonElement = formElement.querySelector(
+    settings.submitButtonSelector
   );
 
   inputList.forEach((inputElement) => {
