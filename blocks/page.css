@@ -1,5 +1,8 @@
 .page {
   min-height: 100vh;
-  background-color: #000000;
+  /*background-color: #000000;*/
+  background: linear-gradient(0deg, #e857f5, #f90df3, #f1eef1, #c8adc8);
+  background-size: 240% 240%;
+  animation: gradient-animation 24s ease infinite;
   margin: auto;
 }
