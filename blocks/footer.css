@@ -11,4 +11,5 @@
 
 .footer__text {
   margin: 0 auto;
+  text-shadow: 1px 1px rgba(255, 255, 255, 0.285);
 }
