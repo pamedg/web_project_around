@@ -58,7 +58,7 @@ function openPopup(name, link) {
   document.addEventListener("keydown", handleCloseOnEsc);
 }
 
-function cardGenerator(name, link) {
+function generateCard(name, link) {
   const card = template.cloneNode(true).content.querySelector(".card");
   const cardImage = card.querySelector(".card__image");
   const cardTitle = card.querySelector(".card__footer");
@@ -80,7 +80,7 @@ function cardGenerator(name, link) {
 }
 
 initialCards.forEach(function (item) {
-  const newCard = cardGenerator(item.name, item.link);
+  const newCard = generateCard(item.name, item.link);
   cardArea.append(newCard);
 });
 
@@ -130,7 +130,7 @@ const formCardsAdd = document.querySelector("#form-add");
 
 formCardsAdd.addEventListener("submit", function (evt) {
   evt.preventDefault();
-  const cardToAdd = cardGenerator(cardInputName.value, cardInputLink.value);
+  const cardToAdd = generateCard(cardInputName.value, cardInputLink.value);
   cardArea.prepend(cardToAdd);
   handleCloseCardPopup();
   popupAddCard.classList.remove("popup_show");
