@@ -1,55 +1,28 @@
-/*como crear nombres de  mis variables----a quien afecta + tipo de elemento */
-const popupProfile = document.querySelector("#popup-profile");
-const popupAddCard = document.querySelector("#popup-add");
-const profileButton = document.querySelector(".profile__bottom");
-const openCardForm = document.querySelector(
-  "#profile-form-button"
-); /*es un boton, OJO si se llega a corregir */
-const closeProfilePopupButton = document.querySelector("#close-profile-form");
-const formProfile = document.querySelector("#form-profile");
-const formCards = document.querySelector("#form-addcard");
-const inputName = document.querySelector("#input-name");
-const profileName = document.querySelector(".profile__name");
-const profileOccupation = document.querySelector(".profile__occupation");
-const inputAbout = document.querySelector("#input-about");
-const profileButtonAdd = document.querySelector(".profile__bottom-add");
-const closeProfilePopupButtonAdd = document.querySelector(
-  "#close-profile-form-add"
-);
-const template = document.querySelector(".template-card");
-const cardArea = document.querySelector(".card-grid");
-const popupImage = document.querySelector("#popup-image");
-const popupImageTag = document.querySelector(".popup__image");
-const popupTitleTag = document.querySelector(".popup__title");
-const cardInputName = document.querySelector("#input-place");
-const cardInputLink = document.querySelector("#input-image");
-const closePopupImage = document.querySelector(".popup__close");
-const initialCards = [
-  {
-    name: "San Francisco, USA",
-    link: "./images/Sanfrancisco.png",
-  },
-  {
-    name: "Oaxaca, México",
-    link: "./images/Oaxacamexico.png",
-  },
-  {
-    name: "Andalucia, España",
-    link: "./images/AndaluciaEspaña.png",
-  },
-  {
-    name: "New York, USA",
-    link: "./images/newyork.png",
-  },
-  {
-    name: "Venezia, Italia",
-    link: "./images/Veneziaitalia.png",
-  },
-  {
-    name: "Paris, Francia",
-    link: "./images/Parisfrance.png",
-  },
-];
+import { Card } from "./card.js";
+import {
+  initialCards,
+  popupProfile,
+  popupAddCard,
+  profileButton,
+  openCardForm,
+  closeProfilePopupButton,
+  formProfile,
+  formCards,
+  inputName,
+  profileName,
+  profileOccupation,
+  inputAbout,
+  profileButtonAdd,
+  closeProfilePopupButtonAdd,
+  template,
+  cardArea,
+  popupImage,
+  popupImageTag,
+  popupTitleTag,
+  cardInputName,
+  cardInputLink,
+  closePopupImage,
+} from "./utils.js";
 
 function openPopup(name, link) {
   popupImageTag.src = link;
