@@ -1,4 +1,4 @@
-import { template } from "./scripts/utils";
+import { template } from "../scripts/utils";
 
 export default class Card {
   constructor(name, link) {
