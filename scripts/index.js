@@ -1,4 +1,3 @@
-import { Card } from "./card.js";
 import {
   initialCards,
   popupProfile,
@@ -23,6 +22,7 @@ import {
   cardInputLink,
   closePopupImage,
 } from "./utils.js";
+import Card from "./components/Card.js";
 
 function openPopup(name, link) {
   popupImageTag.src = link;
