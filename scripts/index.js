@@ -1,3 +1,5 @@
+import { Card } from "./components/Card.js";
+
 import {
   initialCards,
   popupProfile,
@@ -22,7 +24,6 @@ import {
   cardInputLink,
   closePopupImage,
 } from "./utils.js";
-import Card from "./components/Card.js";
 
 function openPopup(name, link) {
   popupImageTag.src = link;
@@ -31,6 +32,9 @@ function openPopup(name, link) {
   document.addEventListener("keydown", handleCloseOnEsc);
 }
 
+const firstCard = new Card("Venezia, Italia", "./images/Veneziaitalia.png");
+
+cardArea.append(firstCard.generateCard());
 function generateCard(name, link) {
   const card = template.cloneNode(true).content.querySelector(".card");
   const cardImage = card.querySelector(".card__image");
