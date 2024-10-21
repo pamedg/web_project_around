@@ -13,7 +13,7 @@ export default class Card {
   setProperties() {
     this._cardImage = this._card.querySelector(".card__image");
     this._cardTitle = this._card.querySelector(".card__footer");
-    this._btnDelete = this._card.querySelector("card__bottom-trash");
+    this._btnDelete = this._card.querySelector(".card__bottom-trash");
     this._btnLike = this._card.querySelector(".card__bottom-like");
     this._cardImage.src = this._link;
     this._cardTitle.textContent = this._name;
@@ -24,10 +24,10 @@ export default class Card {
   }
 
   setEventListeners() {
-    this._btnLike.addEventListeners("click", () => {
+    this._btnLike.addEventListener("click", () => {
       this.handleLike();
     });
-    this._btnDelete.addEventListeners("click", function () {
+    this._btnDelete.addEventListener("click", function () {
       this._card.remove();
     });
   }

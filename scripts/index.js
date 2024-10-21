@@ -56,8 +56,11 @@ new Card("Venezia, Italia", "./images/Veneziaitalia.png");
 }*/
 
 initialCards.forEach(function (item) {
-  const newCard = generateCard(item.name, item.link).generateCard();
-  cardArea.append(newCard);
+  /*const newCard = generateCard(item.name, item.link).generateCard();*/
+  const instanciaDeCard = new Card(item.name, item.link);
+  const cardElement = instanciaDeCard.generateCard();
+
+  cardArea.append(cardElement);
 });
 
 function handleOpenProfilePopup() {
