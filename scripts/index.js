@@ -32,10 +32,9 @@ function openPopup(name, link) {
   document.addEventListener("keydown", handleCloseOnEsc);
 }
 
-const firstCard = new Card("Venezia, Italia", "./images/Veneziaitalia.png");
+new Card("Venezia, Italia", "./images/Veneziaitalia.png");
 
-cardArea.append(firstCard.generateCard());
-function generateCard(name, link) {
+/*function generateCard(name, link) {
   const card = template.cloneNode(true).content.querySelector(".card");
   const cardImage = card.querySelector(".card__image");
   const cardTitle = card.querySelector(".card__footer");
@@ -54,10 +53,10 @@ function generateCard(name, link) {
   cardTitle.textContent = name;
   cardImage.alt = name;
   return card;
-}
+}*/
 
 initialCards.forEach(function (item) {
-  const newCard = generateCard(item.name, item.link);
+  const newCard = generateCard(item.name, item.link).generateCard();
   cardArea.append(newCard);
 });
 
@@ -107,7 +106,10 @@ const formCardsAdd = document.querySelector("#form-add");
 
 formCardsAdd.addEventListener("submit", function (evt) {
   evt.preventDefault();
-  const cardToAdd = generateCard(cardInputName.value, cardInputLink.value);
+  const cardToAdd = newCard(
+    cardInputName.value,
+    cardInputLink.value
+  ).generateCard();
   cardArea.prepend(cardToAdd);
   handleCloseCardPopup();
   popupAddCard.classList.remove("popup_show");
