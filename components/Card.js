@@ -6,6 +6,7 @@ export default class Card {
     this._link = link;
     this._card = this.getTemplate();
   }
+
   getTemplate() {
     /* se creo un metodo */
     return template.cloneNode(true).content.querySelector(".card");
@@ -23,12 +24,16 @@ export default class Card {
     this._btnLike.classList.toggle("card__bottom-like_active");
   }
 
+  handleRemoveCard() {
+    this._card.remove();
+  }
+
   setEventListeners() {
     this._btnLike.addEventListener("click", () => {
       this.handleLike();
     });
-    this._btnDelete.addEventListener("click", function () {
-      this._card.remove();
+    this._btnDelete.addEventListener("click", () => {
+      this.handleRemoveCard();
     });
   }
 
