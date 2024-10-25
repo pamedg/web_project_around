@@ -7,17 +7,44 @@ export default class Validator {
     );
   }
 
-cshowInputError = (errorMessage) {
-  this.errorElement = this._formElement.querySelector(`.${inputElement.id}-error`);
-  inputElement.classList.add(this.settings.inputErrorClass);
-  this.errorElement.textContent = errorMessage;
-  this.errorElement.classList.add("form__input-error_active");
-};
+  showInputError(inputElement) {
+    const errorElement = this._formElement.querySelector(
+      `.${inputElement.id}-error`
+    );
+    inputElement.classList.add(this.settings.inputErrorClass);
+    errorElement.textContent = errorMessage;
+    errorElement.classList.add("form__input-error_active");
+  }
 
-hideInputError(){}
+  hideInputError(inputElement) {
+    const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
+    inputElement.classList.remove(this.settings.inputErrorClass);
+    errorElement.textContent = "";
+  }
 
-setEventListeners(){}
+  setEventListeners() {
+    console.log("2ejecutamosevenlisteners");
 
-enableValidation(){}
+    const buttonElement = this._formElement.querySelector(
+      this._settings.submitButtonSelector
+    );
 
+    toggleButtonState(buttonElement);
+
+    this._inputList.forEach((inputElement) => {
+      inputElement.addEventListener("input", function () {
+        checkInputValidity(inputElement);
+        toggleButtonState(buttonElement);
+      });
+    });
+  }
+
+  enableValidation() {
+    console.log("ejecutamosenable");
+    this._formElement.addEventListener("submit", function (evt) {
+      evt.preventDefault();
+
+      setEventListeners();
+    });
+  }
 }
