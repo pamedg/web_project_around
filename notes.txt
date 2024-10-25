@@ -1,0 +1,6 @@
+entender codigo a traves de la documentacion
+encapsulamiento cuando se tiene un _ y significa que no se puede cambiar su valor
+herencia es crear clases a partir de otras clases va a tener todos los metodos y propiedades de esa clase
+constructor es donde se definen las propiedad o metodos de un inicio y que van a cambiar
+class se refiere a clase de JS
+clasname se refiere a clase de HTML 

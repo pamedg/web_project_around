@@ -22,6 +22,35 @@ export default class Validator {
     errorElement.textContent = "";
   }
 
+  checkInputValidity = (inputElement) => {
+    console.log("3,se ejecuta check inputValidity");
+    if (!inputElement.validity.valid) {
+      showInputError(
+        formElement,
+        inputElement,
+        inputElement.validationMessage,
+        settings
+      );
+    } else {
+      hideInputError(inputElement);
+    }
+  };
+
+  hasInvalidInput = () => {
+    return this._inputList.some((inputElement) => {
+      return !inputElement.validity.valid;
+    });
+  };
+
+  toggleButtonState = (buttonElement) => {
+    console.log(hasInvalidInput(this._inputList));
+    if (hasInvalidInput(inputList)) {
+      buttonElement.classList.add(inactiveButtonClass);
+    } else {
+      buttonElement.classList.remove(inactiveButtonClass);
+    }
+  };
+
   setEventListeners() {
     console.log("2ejecutamosevenlisteners");
 
