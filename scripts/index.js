@@ -1,5 +1,5 @@
 import Card from "../components/Card.js";
-
+import Popup from "../components/Popup.js";
 import {
   initialCards,
   popupProfile,
@@ -63,7 +63,9 @@ initialCards.forEach(function (item) {
   cardArea.append(cardElement);
 });
 
-function handleOpenProfilePopup() {
+const popupProfile = newPopup("#popup-profile");
+
+/*function handleOpenProfilePopup() {
   popupProfile.classList.add("popup_show");
   document.addEventListener("keydown", handleCloseOnEsc);
 }
@@ -71,7 +73,7 @@ function handleOpenProfilePopup() {
 function handleCloseProfilePopup() {
   popupProfile.classList.remove("popup_show");
   document.removeEventListener("keydown", handleCloseOnEsc);
-}
+}*/
 
 function handleOpenCardPopup() {
   popupAddCard.classList.add("popup_show");
