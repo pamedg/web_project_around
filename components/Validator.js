@@ -12,7 +12,7 @@ export default class Validator {
       `.${inputElement.id}-error`
     );
     inputElement.classList.add(this.settings.inputErrorClass);
-    errorElement.textContent = errorMessage;
+    errorElement.textContent = inputElement.validationMessage;
     errorElement.classList.add("form__input-error_active");
   }
 
@@ -25,12 +25,7 @@ export default class Validator {
   checkInputValidity = (inputElement) => {
     console.log("3,se ejecuta check inputValidity");
     if (!inputElement.validity.valid) {
-      showInputError(
-        formElement,
-        inputElement,
-        inputElement.validationMessage,
-        settings
-      );
+      showInputError(inputElement);
     } else {
       hideInputError(inputElement);
     }
@@ -45,9 +40,9 @@ export default class Validator {
   toggleButtonState = (buttonElement) => {
     console.log(hasInvalidInput(this._inputList));
     if (hasInvalidInput(inputList)) {
-      buttonElement.classList.add(inactiveButtonClass);
+      buttonElement.classList.add(this.settings.inactiveButtonClass);
     } else {
-      buttonElement.classList.remove(inactiveButtonClass);
+      buttonElement.classList.remove(this.settings.inactiveButtonClass);
     }
   };
 
@@ -55,7 +50,7 @@ export default class Validator {
     console.log("2ejecutamosevenlisteners");
 
     const buttonElement = this._formElement.querySelector(
-      this._settings.submitButtonSelector
+      this.settings.submitButtonSelector
     );
 
     toggleButtonState(buttonElement);
