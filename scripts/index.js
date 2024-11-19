@@ -1,5 +1,6 @@
 import Card from "../components/Card.js";
 import Popup from "../components/Popup.js";
+import PopupWithForm from "../components/PopupWithForm.js";
 import {
   initialCards,
   popupProfile,
@@ -55,6 +56,7 @@ new Card("Venezia, Italia", "./images/Veneziaitalia.png");
   return card;
 }*/
 
+const closeProfileForm = document.querySelector("#close-profile-form");
 initialCards.forEach(function (item) {
   /*const newCard = generateCard(item.name, item.link).generateCard();*/
   const instanciaDeCard = new Card(item.name, item.link);
@@ -63,7 +65,7 @@ initialCards.forEach(function (item) {
   cardArea.append(cardElement);
 });
 
-const popupProfile = newPopup("#popup-profile");
+const popupProfile = new PopupWithForm("#popup-profile", () => {});
 
 /*function handleOpenProfilePopup() {
   popupProfile.classList.add("popup_show");
@@ -97,7 +99,7 @@ function handleClosePopupImage() {
   document.removeEventListener("keydown", handleCloseOnEsc);
 }
 
-profileButton.addEventListener("click", handleOpenProfilePopup);
+profileButton.addEventListener("click", () => popupProfile.open);
 profileButtonAdd.addEventListener("click", handleOpenCardPopup);
 closeProfilePopupButton.addEventListener("click", handleCloseProfilePopup);
 closeProfilePopupButtonAdd.addEventListener("click", handleCloseCardPopup);
@@ -118,6 +120,7 @@ formCardsAdd.addEventListener("submit", function (evt) {
   cardArea.prepend(cardToAdd);
   handleCloseCardPopup();
   popupAddCard.classList.remove("popup_show");
+  popupProfile.close();
 });
 
 function handleCloseOnEsc(evt) {
@@ -139,3 +142,7 @@ function handleClickOutside(evt) {
 popupProfile.addEventListener("click", handleClickOutside);
 popupAddCard.addEventListener("click", handleClickOutside);
 popupImage.addEventListener("click", handleClickOutside);
+
+closeProfileForm.addEventListener("click", () => {
+  popupProfile.close();
+});
