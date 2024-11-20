@@ -17,7 +17,9 @@ export default class Validator {
   }
 
   hideInputError(inputElement) {
-    const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
+    const errorElement = this._formElement.querySelector(
+      `.${inputElement.id}-error`
+    );
     inputElement.classList.remove(this.settings.inputErrorClass);
     errorElement.textContent = "";
   }
@@ -25,9 +27,9 @@ export default class Validator {
   checkInputValidity = (inputElement) => {
     console.log("3,se ejecuta check inputValidity");
     if (!inputElement.validity.valid) {
-      showInputError(inputElement);
+      this.showInputError(inputElement);
     } else {
-      hideInputError(inputElement);
+      this.hideInputError(inputElement);
     }
   };
 
@@ -38,8 +40,8 @@ export default class Validator {
   };
 
   toggleButtonState = (buttonElement) => {
-    console.log(hasInvalidInput(this._inputList));
-    if (hasInvalidInput(inputList)) {
+    console.log(this.hasInvalidInput(this._inputList));
+    if (this.hasInvalidInput(this._inputList)) {
       buttonElement.classList.add(this.settings.inactiveButtonClass);
     } else {
       buttonElement.classList.remove(this.settings.inactiveButtonClass);
@@ -52,13 +54,11 @@ export default class Validator {
     const buttonElement = this._formElement.querySelector(
       this.settings.submitButtonSelector
     );
-
-    toggleButtonState(buttonElement);
-
+    this.toggleButtonState(buttonElement);
     this._inputList.forEach((inputElement) => {
-      inputElement.addEventListener("input", function () {
-        checkInputValidity(inputElement);
-        toggleButtonState(buttonElement);
+      inputElement.addEventListener("input", () => {
+        this.checkInputValidity(inputElement);
+        this.toggleButtonState(buttonElement);
       });
     });
   }
@@ -67,8 +67,7 @@ export default class Validator {
     console.log("ejecutamosenable");
     this._formElement.addEventListener("submit", function (evt) {
       evt.preventDefault();
-
-      setEventListeners();
     });
+    this.setEventListeners();
   }
 }
