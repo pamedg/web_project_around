@@ -77,7 +77,7 @@ function handleClosePopupImage() {
   document.removeEventListener("keydown", handleCloseOnEsc);
 }
 
-profileButton.addEventListener("click", () => popupProfile.open());
+profileButton.addEventListener("click", () => popupFormProfile.open());
 profileButtonAdd.addEventListener("click", handleOpenCardPopup);
 closeProfilePopupButton.addEventListener("click", handleCloseProfilePopup);
 closeProfilePopupButtonAdd.addEventListener("click", handleCloseCardPopup);
