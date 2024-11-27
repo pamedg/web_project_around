@@ -1,6 +1,10 @@
 export default class Popup {
   constructor(popupSelector) {
     this._popupElement = document.querySelector(popupSelector);
+    this.open = this.open.bind(this);
+    this.close = this.close.bind(this);
+    this.handleEscClose = this.handleEscClose.bind(this);
+    this.handleClickOutside = this.handleClickOutside.bind(this);
   }
 
   open() {
@@ -15,6 +19,13 @@ export default class Popup {
       this.close(); /*se llamo y se cerro */
     }
   }
-  handleClickOutside() {}
-  setEventListener() {}
+
+  handleClickOutside() {
+    this.close();
+  }
+
+  setEventListener() {
+    document.addEventListener("keydown", this.handleEscClose);
+    this._popupElement.addEventListener("click", this.handleClickOutside);
+  }
 }
