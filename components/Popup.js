@@ -20,12 +20,14 @@ export default class Popup {
     }
   }
 
-  handleClickOutside() {
-    this.close();
+  handleClickOutside(evt) {
+    if (evt.target.classList.contains("popup_show")) {
+      this.close();
+    }
   }
 
   setEventListener() {
     document.addEventListener("keydown", this.handleEscClose);
-    this._popupElement.addEventListener("click", this.handleClickOutside);
+    /*this._popupElement.addEventListener("click", this.handleClickOutside);*/
   }
 }

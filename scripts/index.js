@@ -43,20 +43,17 @@ initialCards.forEach(function (item) {
   cardArea.append(cardElement);
 });
 
-const popupFormProfile = new PopupWithForm("#popup-profile", () => {});
-popupFormProfile.setEventListener();
-
-popupProfile.setEventListeners();
-popupCards.setEventListeners();
+const popupFormProfile = new PopupWithForm("#popup-profile", (inputValues) => {
+  console.log(inputValues);
+  profileName.textContent = inputName.value;
+  profileOccupation.textContent = inputAbout.value;
+});
+popupFormProfile.setEventListeners();
+console.log(popupFormProfile);
 
 function handleOpenProfilePopup() {
   popupFormProfile.open();
   document.addEventListener("keydown", handleCloseOnEsc);
-}
-
-function handleCloseProfilePopup() {
-  popupProfile.classList.remove("popup_show");
-  document.removeEventListener("keydown", handleCloseOnEsc);
 }
 
 function handleOpenCardPopup() {
@@ -64,32 +61,12 @@ function handleOpenCardPopup() {
   document.addEventListener("keydown", handleCloseOnEsc);
 }
 
-function handleCloseCardPopup() {
-  popupAddCard.classList.remove("popup_show");
-  document.removeEventListener("keydown", handleCloseOnEsc);
-}
-
-function handleProfileFormSubmit(evt) {
-  evt.preventDefault();
-  profileName.textContent = inputName.value;
-  profileOccupation.textContent = inputAbout.value;
-  handleCloseProfilePopup();
-}
-
-function handleClosePopupImage() {
-  popupImage.classList.remove("popup_show");
-  document.removeEventListener("keydown", handleCloseOnEsc);
-}
-
 profileButton.addEventListener("click", () => popupFormProfile.open());
 profileButtonAdd.addEventListener("click", handleOpenCardPopup);
-closeProfilePopupButton.addEventListener("click", handleCloseProfilePopup);
-closeProfilePopupButtonAdd.addEventListener("click", handleCloseCardPopup);
-formProfile.addEventListener("submit", handleProfileFormSubmit);
+
 openCardForm.addEventListener("click", function () {
   popupAddCard.classList.add(".popup_show");
 });
-closePopupImage.addEventListener("click", handleClosePopupImage);
 
 const formCardsAdd = document.querySelector("#form-add");
 
@@ -100,32 +77,8 @@ formCardsAdd.addEventListener("submit", function (evt) {
     cardInputLink.value
   ).generateCard();
   cardArea.prepend(cardToAdd);
-  handleCloseCardPopup();
+
   popupAddCard.classList.remove("popup_show");
-  popupProfile.close();
-});
-
-function handleCloseOnEsc(evt) {
-  if (evt.key === "Escape") {
-    handleCloseCardPopup();
-    handleClosePopupImage();
-    handleCloseProfilePopup();
-  }
-}
-
-function handleClickOutside(evt) {
-  if (evt.target.classList.contains("popup_show")) {
-    handleCloseCardPopup();
-    handleClosePopupImage();
-    handleCloseProfilePopup();
-  }
-}
-
-popupProfile.addEventListener("click", handleClickOutside);
-popupAddCard.addEventListener("click", handleClickOutside);
-popupImage.addEventListener("click", handleClickOutside);
-
-closeProfileForm.addEventListener("click", () => {
   popupProfile.close();
 });
 
