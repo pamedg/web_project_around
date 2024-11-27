@@ -1,5 +1,5 @@
 import Card from "../components/Card.js";
-/*import Popup from "../components/Popup.js";*/
+import Popup from "../components/Popup.js";
 import PopupWithForm from "../components/PopupWithForm.js";
 import Validator from "../components/Validator.js";
 import {
@@ -45,6 +45,9 @@ initialCards.forEach(function (item) {
 
 const popupFormProfile = new PopupWithForm("#popup-profile", () => {});
 popupFormProfile.setEventListener();
+
+popupProfile.setEventListeners();
+popupCards.setEventListeners();
 
 function handleOpenProfilePopup() {
   popupFormProfile.open();
