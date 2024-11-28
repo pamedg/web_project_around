@@ -36,5 +36,11 @@ export default class Popup {
       e.preventDefault();
       this.close();
     });
+
+    this._popupElement.addEventListener("click", (e) => {
+      if (e.target.classList.contains("popup") === true) {
+        this.close();
+      }
+    });
   }
 }
