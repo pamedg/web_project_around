@@ -29,5 +29,12 @@ export default class Popup {
   setEventListener() {
     document.addEventListener("keydown", this.handleEscClose);
     /*this._popupElement.addEventListener("click", this.handleClickOutside);*/
+    const buttonClose = this._popupElement.querySelector(
+      'img[alt="boton para cerrar"]'
+    );
+    buttonClose.addEventListener("click", (e) => {
+      e.preventDefault();
+      this.close();
+    });
   }
 }

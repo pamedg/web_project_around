@@ -5,7 +5,7 @@ export default class PopupWithForm extends Popup {
     super(popupSelector); /* Herencia super llama al constructor de otra clase*/
     this._formElement = this._popupElement.querySelector(".popup__form");
     this._handleFormSubmit = handleFormSubmit;
-    this._inputList = this._popupElement.querySelector();
+    this._inputList = this._popupElement.querySelectorAll("input");
   }
 
   getInputValues() {
@@ -17,6 +17,7 @@ export default class PopupWithForm extends Popup {
     return this.formValues;
   }
   setEventListeners() {
+    super.setEventListener();
     this._formElement.addEventListener("submit", (evt) => {
       console.log("prueba");
       evt.preventDefault();
