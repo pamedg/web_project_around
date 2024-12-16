@@ -1,10 +1,12 @@
 import { template } from "../scripts/utils.js";
 
 export default class Card {
-  constructor(name, link) {
+  constructor(name, link, handleCardClick) {
     this._name = name;
     this._link = link;
     this._card = this.getTemplate();
+
+    this.handleCardClick = handleCardClick;
   }
 
   getTemplate() {
@@ -34,6 +36,10 @@ export default class Card {
     });
     this._btnDelete.addEventListener("click", () => {
       this.handleRemoveCard();
+    });
+
+    this._cardImage.addEventListener("click", () => {
+      this.handleCardClick();
     });
   }
 

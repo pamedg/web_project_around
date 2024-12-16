@@ -35,7 +35,7 @@ export const closeProfilePopupButton = document.querySelector(
   "#close-profile-form"
 );
 export const formProfile = document.querySelector("#form-profile");
-export const formCards = document.querySelector("#form-addcard");
+export const formCards = document.querySelector("#form-add");
 export const inputName = document.querySelector("#input-name");
 export const profileName = document.querySelector(".profile__name");
 export const profileOccupation = document.querySelector(".profile__occupation");
