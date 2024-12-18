@@ -35,7 +35,7 @@ popupFormProfile.setEventListeners();
 
 const popupFormCards = new PopupWithForm("#popup-add", (inputValues) => {
   const instanciaDeCard = new Card(inputValues.title, inputValues.link, () => {
-    popupImage.open(item.name, item.link);
+    popupImage.open(inputValues.title, inputValues.link);
   });
   const cardElement = instanciaDeCard.generateCard();
 
