@@ -2,6 +2,7 @@ import Card from "../components/Card.js";
 import PopupWithForm from "../components/PopupWithForm.js";
 import PopupWithImage from "../components/PopupWithImage.js";
 import Validator from "../components/Validator.js";
+import dayjs from "dayjs";
 import {
   initialCards,
   popupAddCard,
@@ -16,6 +17,10 @@ import {
   cardArea,
   formCards,
 } from "./utils.js";
+
+const today = new Date();
+
+console.log(dayjs(today).format("YYYY"));
 
 initialCards.forEach(function (item) {
   const instanciaDeCard = new Card(item.name, item.link, () => {

@@ -1,0 +1,28 @@
+{
+  "dependencies": {
+    "dayjs": "^1.11.13"
+  },
+  "name": "web_project_around",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "web_project_around\r Proyecto final del sprint 5 en el que he desarrollado .... he utilizado responsive design, he puesto en practica JavaScript,codigo HTML y aportando estilos con index.css.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rm -rf dist && webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pamedg/web_project_around.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pamedg/web_project_around/issues"
+  },
+  "homepage": "https://github.com/pamedg/web_project_around#readme",
+  "devDependencies": {
+    "webpack": "^5.97.1",
+    "webpack-cli": "^6.0.1"
+  }
+}
