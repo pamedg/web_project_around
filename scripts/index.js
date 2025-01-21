@@ -2,7 +2,7 @@ import Card from "../components/Card.js";
 import PopupWithForm from "../components/PopupWithForm.js";
 import PopupWithImage from "../components/PopupWithImage.js";
 import Validator from "../components/Validator.js";
-import dayjs from "dayjs";
+//import dayjs from "dayjs";
 import {
   initialCards,
   popupAddCard,
@@ -17,19 +17,18 @@ import {
   cardArea,
   formCards,
 } from "./utils.js";
+import Section from "../components/Section.js";
 
 const today = new Date();
 
-console.log(dayjs(today).format("YYYY"));
+//console.log(dayjs(today).format("YYYY"));
 
-initialCards.forEach(function (item) {
+new Section(initialCards, (item) => {
   const instanciaDeCard = new Card(item.name, item.link, () => {
     popupImage.open(item.name, item.link);
   });
-  const cardElement = instanciaDeCard.generateCard();
-
-  cardArea.append(cardElement);
-});
+  return instanciaDeCard.generateCard();
+}).renderer();
 
 const popupFormProfile = new PopupWithForm("#popup-profile", (inputValues) => {
   console.log(inputValues);
