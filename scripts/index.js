@@ -18,10 +18,14 @@ import {
   formCards,
 } from "./utils.js";
 import Section from "../components/Section.js";
+import UserInfo from "../components/UserInfo.js";
+import UserInfo from "../components/UserInfo.js";
 
 const today = new Date();
 
 //console.log(dayjs(today).format("YYYY"));
+
+const UserInfo = new UserInfo(".profile__name", ".profile__occupation");
 
 new Section(initialCards, (item) => {
   const instanciaDeCard = new Card(item.name, item.link, () => {
@@ -32,8 +36,7 @@ new Section(initialCards, (item) => {
 
 const popupFormProfile = new PopupWithForm("#popup-profile", (inputValues) => {
   console.log(inputValues);
-  profileName.textContent = inputName.value;
-  profileOccupation.textContent = inputAbout.value;
+  UserInfo.setUserInfo({ name: inputName.value, job: inputAbout.value });
 });
 popupFormProfile.setEventListeners();
 
