@@ -2,30 +2,21 @@ import Card from "../components/Card.js";
 import PopupWithForm from "../components/PopupWithForm.js";
 import PopupWithImage from "../components/PopupWithImage.js";
 import Validator from "../components/Validator.js";
-//import dayjs from "dayjs";
+
 import {
   initialCards,
   popupAddCard,
   profileButton,
   openCardForm,
   formProfile,
-  inputName,
-  profileName,
-  profileOccupation,
-  inputAbout,
   profileButtonAdd,
   cardArea,
   formCards,
 } from "./utils.js";
 import Section from "../components/Section.js";
 import UserInfo from "../components/UserInfo.js";
-import UserInfo from "../components/UserInfo.js";
 
-const today = new Date();
-
-//console.log(dayjs(today).format("YYYY"));
-
-const UserInfo = new UserInfo(".profile__name", ".profile__occupation");
+const userInfo = new UserInfo(".profile__name", ".profile__occupation");
 
 new Section(initialCards, (item) => {
   const instanciaDeCard = new Card(item.name, item.link, () => {
@@ -36,7 +27,7 @@ new Section(initialCards, (item) => {
 
 const popupFormProfile = new PopupWithForm("#popup-profile", (inputValues) => {
   console.log(inputValues);
-  UserInfo.setUserInfo({ name: inputName.value, job: inputAbout.value });
+  userInfo.setUserInfo({ name: inputValues.name, job: inputValues.job });
 });
 popupFormProfile.setEventListeners();
 
