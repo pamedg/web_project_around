@@ -25,7 +25,6 @@ export default class Validator {
   }
 
   checkInputValidity = (inputElement) => {
-    console.log("3,se ejecuta check inputValidity");
     if (!inputElement.validity.valid) {
       this.showInputError(inputElement);
     } else {
@@ -40,7 +39,6 @@ export default class Validator {
   };
 
   toggleButtonState = (buttonElement) => {
-    console.log(this.hasInvalidInput(this._inputList));
     if (this.hasInvalidInput(this._inputList)) {
       buttonElement.classList.add(this.settings.inactiveButtonClass);
     } else {
@@ -49,8 +47,6 @@ export default class Validator {
   };
 
   setEventListeners() {
-    console.log("2ejecutamosevenlisteners");
-
     const buttonElement = this._formElement.querySelector(
       this.settings.submitButtonSelector
     );
@@ -64,7 +60,6 @@ export default class Validator {
   }
 
   enableValidation() {
-    console.log("ejecutamosenable");
     this._formElement.addEventListener("submit", function (evt) {
       evt.preventDefault();
     });
