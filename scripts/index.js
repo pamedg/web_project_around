@@ -2,6 +2,7 @@ import Card from "../components/Card.js";
 import PopupWithForm from "../components/PopupWithForm.js";
 import PopupWithImage from "../components/PopupWithImage.js";
 import Validator from "../components/Validator.js";
+import { api } from "../components/Api.js";
 
 import {
   initialCards,
@@ -15,6 +16,10 @@ import {
 } from "./utils.js";
 import Section from "../components/Section.js";
 import UserInfo from "../components/UserInfo.js";
+
+api.getInitialCards();
+.then((result) => {}
+api.getUser();
 
 const userInfo = new UserInfo(".profile__name", ".profile__occupation");
 
