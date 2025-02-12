@@ -39,7 +39,7 @@ class Api {
     })
   });
 
-  postCards(name, link) {
+  postCards(name, link)
     return fetch("https://around-api.es.tripleten-services.com/v1/cards/", {
       method: "POST",
       headers: {
@@ -50,7 +50,7 @@ class Api {
         name: "name",
         link: "link"
       })
-}
+    });
 
 export const api = new Api({
   baseUrl: "https://around-api.es.tripleten-services.com/v1",
