@@ -18,7 +18,6 @@ import Section from "../components/Section.js";
 import UserInfo from "../components/UserInfo.js";
 
 api.getInitialCards();
-.then((result) => {}
 api.getUser();
 
 const userInfo = new UserInfo(".profile__name", ".profile__occupation");
