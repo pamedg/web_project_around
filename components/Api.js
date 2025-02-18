@@ -57,11 +57,13 @@ class Api {
         name: name,
         link: link,
       }),
-    }).then((res) => {
-      if (res.ok) {
-        return res.json();
+    }).then((response) => {
+      if (!response.ok) {
+        return response.json().then((errData) => {
+          throw new Error(`Error: ${response.status} - ${errData.message}`);
+        });
       }
-      return Promise.reject(`Error: ${res.status}`);
+      return Promise.reject(`Error: ${response.status}`);
     });
   }
 }
