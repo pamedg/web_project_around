@@ -54,15 +54,14 @@ class Api {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        name: "name",
-        link: "link",
-      })
-      .then((res) => {
-        if (res.ok) {
-          return res.json();
-        }
-        return Promise.reject(`Error: ${res.status}`);
+        name: name,
+        link: link,
       }),
+    }).then((res) => {
+      if (res.ok) {
+        return res.json();
+      }
+      return Promise.reject(`Error: ${res.status}`);
     });
   }
 }
