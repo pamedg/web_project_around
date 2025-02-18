@@ -35,8 +35,8 @@ class Api {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        name: "name",
-        about: "about",
+        name: "Lara",
+        about: "Bailarina",
       }),
     }).then((res) => {
       if (res.ok) {
@@ -55,7 +55,7 @@ class Api {
       },
       body: JSON.stringify({
         name: name,
-        link: link,
+        link: URL,
       }),
     }).then((response) => {
       if (!response.ok) {

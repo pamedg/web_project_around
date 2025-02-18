@@ -30,23 +30,7 @@ api.getUser().then((result) => {
   console.log(result);
 });
 
-api.patchUserInfo().then((result) => {
-  console.log(result);
-  patchuserInfo.setUserInfo({ name: result.name, job: result.about });
-});
-
-api.postCards().then((result) => {
-  console.log(result);
-});
-
 const userInfo = new UserInfo(".profile__name", ".profile__occupation");
-
-new Section(initialCards, (item) => {
-  const instanciaDeCard = new Card(item.name, item.link, () => {
-    popupImage.open(item.name, item.link);
-  });
-  return instanciaDeCard.generateCard();
-}).renderer();
 
 const popupFormProfile = new PopupWithForm("#popup-profile", (inputValues) => {
   console.log(inputValues);
@@ -75,6 +59,17 @@ profileButton.addEventListener("click", () => popupFormProfile.open());
 
 profileButtonAdd.addEventListener("click", () => {
   popupFormCards.open();
+});
+
+api.patchUserInfo().then((result) => {
+  addEventListener("click", (e) => {
+  console.log(result);
+  userInfo.setUserInfo({ name: result.name, job: result.about });
+});
+
+api.postCards().then((result) => {
+  addEventListener("click", (e) => {
+  console.log(result);
 });
 
 openCardForm.addEventListener("click", function () {
