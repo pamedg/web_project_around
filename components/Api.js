@@ -11,7 +11,7 @@ class Api {
       .then((res) => res.json())
       .then((result) => {
         console.log(result);
-        res.json();
+        return result;
       });
   }
 
@@ -35,9 +35,14 @@ class Api {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        name: "Lara",
-        about: "Bailarina",
-      }).then((res) => res.json()),
+        name: "name",
+        about: "about",
+      }),
+    }).then((res) => {
+      if (res.ok) {
+        return res.json();
+      }
+      return Promise.reject(`Error: ${res.status}`);
     });
   }
 
@@ -52,7 +57,12 @@ class Api {
         name: "name",
         link: "link",
       })
-      .then((res) => res.json()),
+      .then((res) => {
+        if (res.ok) {
+          return res.json();
+        }
+        return Promise.reject(`Error: ${res.status}`);
+      }),
     });
   }
 }

@@ -19,10 +19,19 @@ import UserInfo from "../components/UserInfo.js";
 
 api.getInitialCards().then((result) => {
   console.log(result);
+});
 
-  api.getUser();
-  api.patchUserInfo();
-  api.postCards();
+api.getUser().then((result) => {
+  console.log(result);
+});
+
+api.patchUserInfo().then((result) => {
+  console.log(result);
+  patchuserInfo.setUserInfo({ name: result.name, job: result.about });
+});
+
+api.postCards().then((result) => {
+  console.log(result);
 });
 
 const userInfo = new UserInfo(".profile__name", ".profile__occupation");
