@@ -17,8 +17,13 @@ import {
 import Section from "../components/Section.js";
 import UserInfo from "../components/UserInfo.js";
 
-api.getInitialCards().then((result) => {
-  console.log(result);
+api.getInitialCards().then((initialCards) => {
+  new Section(initialCards, (item) => {
+    const instanciaDeCard = new Card(item.name, item.link, () => {
+      popupImage.open(item.name, item.link);
+    });
+    return instanciaDeCard.generateCard();
+  }).renderer();
 });
 
 api.getUser().then((result) => {
