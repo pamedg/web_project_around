@@ -11,6 +11,7 @@ class Api {
       .then((res) => res.json())
       .then((result) => {
         console.log(result);
+        res.json();
       });
   }
 
@@ -22,7 +23,7 @@ class Api {
     })
       .then((res) => res.json())
       .then((result) => {
-        console.log(result);
+        return result;
       });
   }
 
@@ -31,26 +32,30 @@ class Api {
       method: "PATCH",
       headers: {
         authorization: "4d663130-4b47-4922-8d66-781f1a22d9e5",
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
       },
-        body: JSON.stringify({
-          name: "Lara",
-          about: "Bailarina"
-    })
-  });
+      body: JSON.stringify({
+        name: "Lara",
+        about: "Bailarina",
+      }).then((res) => res.json()),
+    });
+  }
 
-  postCards(name, link)
+  postCards(name, link) {
     return fetch("https://around-api.es.tripleten-services.com/v1/cards/", {
       method: "POST",
       headers: {
         authorization: "4d663130-4b47-4922-8d66-781f1a22d9e5",
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({
         name: "name",
-        link: "link"
+        link: "link",
       })
+      .then((res) => res.json()),
     });
+  }
+}
 
 export const api = new Api({
   baseUrl: "https://around-api.es.tripleten-services.com/v1",

@@ -17,10 +17,13 @@ import {
 import Section from "../components/Section.js";
 import UserInfo from "../components/UserInfo.js";
 
-api.getInitialCards();
-api.getUser();
-api.patchUserInfo();
-api.postCards();
+api.getInitialCards().then((result) => {
+  console.log(result);
+
+  api.getUser();
+  api.patchUserInfo();
+  api.postCards();
+});
 
 const userInfo = new UserInfo(".profile__name", ".profile__occupation");
 
