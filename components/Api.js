@@ -58,15 +58,16 @@ class Api {
         link,
       }),
     }).then((response) => {
-      if (!response.ok) {
+      if (response.ok) {
         return response.json();
       }
+      this.isLiked = false;
       return Promise.reject(`Error: ${response.status}`);
     });
   }
 }
 
-export const api = new Api({
+const api = new Api({
   baseUrl: "https://around-api.es.tripleten-services.com/v1",
   headers: {
     authorization: "4d663130-4b47-4922-8d66-781f1a22d9e5",

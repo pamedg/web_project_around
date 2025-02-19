@@ -43,14 +43,14 @@ const popupFormProfile = new PopupWithForm("#popup-profile", (inputValues) => {
 popupFormProfile.setEventListeners();
 
 const popupFormCards = new PopupWithForm("#popup-add", (inputValues) => {
-  api.postCards().then((result) => {
+  api.postCards(inputValues.title, inputValues.link).then((result) => {
     const instanciaDeCard = new Card(result, () => {
       popupImage.open(inputValues.title, inputValues.link);
     });
     const cardElement = instanciaDeCard.generateCard();
 
     cardArea.prepend(cardElement);
-    popupFormCards.close();
+    /*popupFormCards.close();*/
   });
 });
 popupFormCards.setEventListeners();
