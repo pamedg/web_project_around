@@ -19,7 +19,7 @@ import UserInfo from "../components/UserInfo.js";
 
 api.getInitialCards().then((initialCards) => {
   new Section(initialCards, (item) => {
-    const instanciaDeCard = new Card(item.name, item.link, () => {
+    const instanciaDeCard = new Card(item, () => {
       popupImage.open(item.name, item.link);
     });
     return instanciaDeCard.generateCard();
@@ -27,35 +27,37 @@ api.getInitialCards().then((initialCards) => {
 });
 
 api.getUser().then((result) => {
-  console.log(result);
+  userInfo.setUserInfo({ name: result.name, job: result.about });
 });
 
 const userInfo = new UserInfo(".profile__name", ".profile__occupation");
 
 const popupFormProfile = new PopupWithForm("#popup-profile", (inputValues) => {
   console.log(inputValues);
-  api.patchUserInfo().then((result) => {});
-  userInfo.setUserInfo({ name: inputValues.name, job: inputValues.job });
+  api
+    .patchUserInfo({ name: inputValues.name, about: inputValues.job })
+    .then((result) => {
+      userInfo.setUserInfo({ name: inputValues.name, job: inputValues.job });
+    });
 });
 popupFormProfile.setEventListeners();
 
 const popupFormCards = new PopupWithForm("#popup-add", (inputValues) => {
-  api.postCards().then((result) => {});
-  const instanciaDeCard = new Card(inputValues.title, inputValues.link, () => {
-    popupImage.open(inputValues.title, inputValues.link);
-  });
-  const cardElement = instanciaDeCard.generateCard();
+  api.postCards().then((result) => {
+    const instanciaDeCard = new Card(result, () => {
+      popupImage.open(inputValues.title, inputValues.link);
+    });
+    const cardElement = instanciaDeCard.generateCard();
 
-  cardArea.prepend(cardElement);
-  popupFormCards.close();
+    cardArea.prepend(cardElement);
+    popupFormCards.close();
+  });
 });
 popupFormCards.setEventListeners();
 
 const popupImage = new PopupWithImage("#popup-image");
 
 popupImage.setEventListener();
-
-console.log(popupFormProfile);
 
 profileButton.addEventListener("click", () => popupFormProfile.open());
 

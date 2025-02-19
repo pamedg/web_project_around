@@ -1,9 +1,9 @@
 import { template } from "../scripts/utils.js";
 
 export default class Card {
-  constructor(name, link, handleCardClick) {
-    this._name = name;
-    this._link = link;
+  constructor(data, handleCardClick) {
+    this._name = data.name;
+    this._link = data.link;
     this._card = this.getTemplate();
 
     this.handleCardClick = handleCardClick;

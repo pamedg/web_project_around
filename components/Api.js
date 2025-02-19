@@ -27,7 +27,7 @@ class Api {
       });
   }
 
-  patchUserInfo(name, about) {
+  patchUserInfo({ name, about }) {
     return fetch("https://around-api.es.tripleten-services.com/v1/users/me", {
       method: "PATCH",
       headers: {
@@ -35,8 +35,8 @@ class Api {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        name: "Lara",
-        about: "Bailarina",
+        name,
+        about,
       }),
     }).then((res) => {
       if (res.ok) {
@@ -54,14 +54,12 @@ class Api {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        name: name,
-        link: URL,
+        name,
+        link,
       }),
     }).then((response) => {
       if (!response.ok) {
-        return response.json().then((errData) => {
-          throw new Error(`Error: ${response.status} - ${errData.message}`);
-        });
+        return response.json();
       }
       return Promise.reject(`Error: ${response.status}`);
     });
