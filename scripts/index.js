@@ -2,7 +2,7 @@ import Card from "../components/Card.js";
 import PopupWithForm from "../components/PopupWithForm.js";
 import PopupWithImage from "../components/PopupWithImage.js";
 import Validator from "../components/Validator.js";
-import { api } from "../components/Api.js";
+import api from "../components/Api.js";
 
 import {
   initialCards,

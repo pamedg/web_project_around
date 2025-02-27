@@ -1,3 +1,5 @@
+export { index } from "../scripts/index.js";
+
 class Api {
   constructor(options) {
     // cuerpo del constructor
