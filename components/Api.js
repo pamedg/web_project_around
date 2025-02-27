@@ -67,6 +67,23 @@ class Api {
       return Promise.reject(`Error: ${response.status}`);
     });
   }
+
+  deleteCard(cardId) {
+    return fetch(
+      `https://around-api.es.tripleten-services.com/v1/cards/:cardId`,
+      {
+        method: "DELETE",
+        headers: {
+          authorization,
+        },
+      }
+    ).then((res) => {
+      if (res.ok) {
+        return res.json();
+      }
+      return Promise.reject(`Error: ${res.status}`);
+    });
+  }
 }
 
 const api = new Api({
