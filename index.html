@@ -51,34 +51,14 @@
             alt="boton de eliminar"
             class="card__bottom-trash"
           />
-          <div class="popup" id="popup-confirmation">
-            <form class="form popup__form" id="form-confirmation" novalidate>
-              <img
-                class="form__close-button"
-                src="images/CloseIcon.svg"
-                alt="boton para cerrar"
-                id="close-profile-form-add"
-              />
-              <h2 class="form__title">¿Estas seguro?</h2>
-              <div>
-                <input
-                  class="form__input"
-                  type="click"
-                  id="input-confirmation"
-                  required
-                  name="form-confirmation"
-                  placeholder="Si"
-                />
-                <span class="form__error input-place-error"></span>
-              </div>
-        </div>
-          <div class="card__description">
+         <div class="card__description">
             <h3 class="card__footer"></h3>
             <div src="" alt="boton de like" class="card__bottom-like"></div>
-            <LikeButton initialIsLiked="{false}" />
+
           </div>
         </div>
       </template>
+
       <div class="popup" id="popup-image">
         <div class="popup__container">
           <img src="#" alt="" class="popup__image" />
@@ -131,7 +111,6 @@
           </button>
         </form>
       </div>
-
       <div class="popup" id="popup-add">
         <form class="form popup__form" id="form-add" novalidate>
           <img
@@ -172,6 +151,28 @@
           </button>
         </form>
       </div>
+      <div class="popup" id="popup-confirmation">
+        <form class="form popup__form" id="form-confirmation" novalidate>
+          <img
+            class="form__close-button"
+            src="images/CloseIcon.svg"
+            alt="boton para cerrar"
+            id="close-profile-form-add"
+          />
+          <h2 class="form__title">¿Estas seguro?</h2>
+          <div>
+            <input
+              class="form__input"
+              type="click"
+              id="input-confirmation"
+              required
+              name="form-confirmation"
+              placeholder="Si"
+            />
+            <span class="form__error input-place-error"></span>
+          </div>
+        </form>
+    </div>
 
     <script src="./scripts/index.js" type="module"></script>
   </body>

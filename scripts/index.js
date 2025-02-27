@@ -2,7 +2,7 @@ import Card from "../components/Card.js";
 import PopupWithForm from "../components/PopupWithForm.js";
 import PopupWithImage from "../components/PopupWithImage.js";
 import Validator from "../components/Validator.js";
-import api from "../components/Api.js";
+import { api } from "../components/Api.js";
 
 import {
   initialCards,
@@ -26,16 +26,22 @@ api.getInitialCards().then((initialCards) => {
   }).renderer();
 });
 
-api.getUser().then((result) => {
-  userInfo.setUserInfo({ name: result.name, job: result.about });
+api.getUserInformation().then((result) => {
+  userInfo.setUserInfo({
+    name: result.name,
+    job: result.about,
+    link: result.avatar,
+  });
 });
+
+api.Likes().then(() => {});
 
 const userInfo = new UserInfo(".profile__name", ".profile__occupation");
 
 const popupFormProfile = new PopupWithForm("#popup-profile", (inputValues) => {
   console.log(inputValues);
   api
-    .patchUserInfo({ name: inputValues.name, about: inputValues.job })
+    .updateUserInformation({ name: inputValues.name, about: inputValues.job })
     .then((result) => {
       userInfo.setUserInfo({ name: inputValues.name, job: inputValues.job });
     });
@@ -43,7 +49,7 @@ const popupFormProfile = new PopupWithForm("#popup-profile", (inputValues) => {
 popupFormProfile.setEventListeners();
 
 const popupFormCards = new PopupWithForm("#popup-add", (inputValues) => {
-  api.postCards(inputValues.title, inputValues.link).then((result) => {
+  api.createCard(inputValues.title, inputValues.link).then((result) => {
     const instanciaDeCard = new Card(result, () => {
       popupImage.open(inputValues.title, inputValues.link);
     });

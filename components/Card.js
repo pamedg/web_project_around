@@ -1,12 +1,15 @@
 import { template } from "../scripts/utils.js";
 
 export default class Card {
-  constructor(data, handleCardClick) {
+  constructor(data, handleCardClick, handleLike, handleRemoveCard) {
     this._name = data.name;
     this._link = data.link;
     this._card = this.getTemplate();
+    this._isLiked = data.isLiked;
 
     this.handleCardClick = handleCardClick;
+    this.handleLike = handleLike;
+    this.handleLike = handleRemoveLike;
   }
 
   getTemplate() {
@@ -24,6 +27,11 @@ export default class Card {
 
   handleLike() {
     this._btnLike.classList.toggle("card__bottom-like_active");
+    if (this._isLiked) {
+      console.log("se debe llamar al quitar like");
+    } else {
+      console.log("se debe llamar al dar like");
+    }
   }
 
   handleRemoveCard() {
