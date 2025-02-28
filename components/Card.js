@@ -9,7 +9,7 @@ export default class Card {
 
     this.handleCardClick = handleCardClick;
     this.handleLike = handleLike;
-    this.handleLike = handleRemoveLike;
+    this.handleDeleteLike = handleRemoveCard;
   }
 
   getTemplate() {
@@ -29,9 +29,12 @@ export default class Card {
     this._btnLike.classList.toggle("card__bottom-like_active");
     if (this._isLiked) {
       console.log("se debe llamar al quitar like");
+      this.handleLike();
     } else {
       console.log("se debe llamar al dar like");
+      this.handleDeleteLike();
     }
+    this._isLiked = !this._isLiked;
   }
 
   handleRemoveCard() {
