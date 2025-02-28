@@ -19,9 +19,15 @@ import UserInfo from "../components/UserInfo.js";
 
 api.getInitialCards().then((initialCards) => {
   new Section(initialCards, (item) => {
-    const instanciaDeCard = new Card(item, () => {
-      popupImage.open(item.name, item.link);
-    });
+    const instanciaDeCard = new Card(
+      item,
+      () => {
+        popupImage.open(item.name, item.link);
+      },
+      () => {
+        api.Likes(item._id);
+      }
+    );
     return instanciaDeCard.generateCard();
   }).renderer();
 });
@@ -33,8 +39,6 @@ api.getUserInformation().then((result) => {
     link: result.avatar,
   });
 });
-
-api.Likes().then(() => {});
 
 const userInfo = new UserInfo(".profile__name", ".profile__occupation");
 
@@ -50,15 +54,22 @@ popupFormProfile.setEventListeners();
 
 const popupFormCards = new PopupWithForm("#popup-add", (inputValues) => {
   api.createCard(inputValues.title, inputValues.link).then((result) => {
-    const instanciaDeCard = new Card(result, () => {
-      popupImage.open(inputValues.title, inputValues.link);
-    });
+    const instanciaDeCard = new Card(
+      result,
+      () => {
+        popupImage.open(inputValues.title, inputValues.link);
+      },
+      () => {
+        api.Likes().then(() => {});
+      }
+    );
     const cardElement = instanciaDeCard.generateCard();
 
     cardArea.prepend(cardElement);
     /*popupFormCards.close();*/
   });
 });
+
 popupFormCards.setEventListeners();
 
 const popupImage = new PopupWithImage("#popup-image");

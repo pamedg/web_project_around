@@ -72,13 +72,12 @@ class Api {
   }
 
   Likes(cardId) {
-    return fetch(`${this._baseUrl}/v1/cards/likes/`, {
-      method: "GET",
+    return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
+      method: "PUT",
       headers: {
         ...this._headers,
         authorization: "4d663130-4b47-4922-8d66-781f1a22d9e5",
         "Content-Type": "application/json",
-        isLiked: true,
       },
     }).then((res) => {
       if (res.ok) {
@@ -88,8 +87,8 @@ class Api {
     });
   }
 
-  deleteCard(cardId) {
-    return fetch(`${this._baseUrl / cards / cardId}`, {
+  deleteLikeCard(cardId) {
+    return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
       method: "DELETE",
       headers: {
         ...this._headers,

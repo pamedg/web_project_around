@@ -8,7 +8,7 @@ export default class Card {
     this._isLiked = data.isLiked;
 
     this.handleCardClick = handleCardClick;
-    this.handleLike = handleLike;
+    this._handleLike = handleLike;
     this.handleDeleteLike = handleRemoveCard;
   }
 
@@ -27,9 +27,9 @@ export default class Card {
 
   handleLike() {
     this._btnLike.classList.toggle("card__bottom-like_active");
-    if (this._isLiked) {
+    if (!this._isLiked) {
       console.log("se debe llamar al quitar like");
-      this.handleLike();
+      this._handleLike();
     } else {
       console.log("se debe llamar al dar like");
       this.handleDeleteLike();
