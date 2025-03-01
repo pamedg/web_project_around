@@ -26,6 +26,9 @@ api.getInitialCards().then((initialCards) => {
       },
       () => {
         api.Likes(item._id);
+      },
+      () => {
+        api.Dislike(item._id);
       }
     );
     return instanciaDeCard.generateCard();
@@ -61,6 +64,9 @@ const popupFormCards = new PopupWithForm("#popup-add", (inputValues) => {
       },
       () => {
         api.Likes().then(() => {});
+      },
+      () => {
+        api.Dislike(item._id);
       }
     );
     const cardElement = instanciaDeCard.generateCard();

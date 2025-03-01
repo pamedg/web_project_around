@@ -23,6 +23,9 @@ export default class Card {
     this._btnLike = this._card.querySelector(".card__bottom-like");
     this._cardImage.src = this._link;
     this._cardTitle.textContent = this._name;
+    this._isLiked
+      ? this._btnLike.classList.add("card__bottom-like_active")
+      : null;
   }
 
   handleLike() {
