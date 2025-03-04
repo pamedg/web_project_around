@@ -102,6 +102,42 @@ class Api {
       return Promise.reject(`Error: ${res.status}`);
     });
   }
+
+  Avatar(link) {
+    return fetch(`${this._baseUrl}/users/me/avatar`, {
+      method: "PATCH",
+      headers: {
+        ...this._headers,
+        authorization: "4d663130-4b47-4922-8d66-781f1a22d9e5",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        link,
+      }),
+    }).then((res) => {
+      if (res.ok) {
+        return res.json();
+      }
+
+      return Promise.reject(`Error: ${res.status}`);
+    });
+  }
+
+  DeleteCard(cardId) {
+    return fetch(`${this._baseUrl}/cards/${cardId}`, {
+      method: "DELETE",
+      headers: {
+        ...this._headers,
+        authorization: "4d663130-4b47-4922-8d66-781f1a22d9e5",
+        "Content-Type": "application/json",
+      },
+    }).then((res) => {
+      if (res.ok) {
+        return res.json();
+      }
+      return Promise.reject(`Error: ${res.status}`);
+    });
+  }
 }
 
 export const api = new Api({
