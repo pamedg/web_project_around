@@ -16,6 +16,10 @@ class Api {
       .then((result) => {
         console.log(result);
         return result;
+      })
+      .then((result) => {
+        document.querySelector(".profile__avatar").src = result.avatar;
+        return result;
       });
   }
 
@@ -112,7 +116,7 @@ class Api {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        link,
+        avatar: link,
       }),
     }).then((res) => {
       if (res.ok) {

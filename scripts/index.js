@@ -37,6 +37,7 @@ api.getInitialCards().then((initialCards) => {
 });
 
 api.getUserInformation().then((result) => {
+  console.log(result.avatar);
   userInfo.setUserInfo({
     name: result.name,
     job: result.about,
@@ -56,7 +57,7 @@ const popupFormProfile = new PopupWithForm("#popup-profile", (inputValues) => {
 });
 
 const popupAvatarProfile = new PopupWithForm("#popup-avatar", (inputValues) => {
-  api.updateAvatar(inputValues.link).then(() => {
+  api.Avatar(inputValues.link).then(() => {
     userInfo.setUserInfo({ link: inputValues.link });
   });
 });
