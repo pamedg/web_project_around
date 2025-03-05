@@ -53,7 +53,7 @@
 .form__button {
   width: 358px;
   height: 50.15px;
-  background-color: #000000;
+  background-color: palevioletred;
   color: #ffffff;
   font-family: "Inter";
   font-weight: 400;
@@ -67,6 +67,6 @@
 }
 
 .form__button_disabled {
-  background-color: #c4c4c4;
+  background-color: rgb(250, 203, 211);
   pointer-events: none;
 }

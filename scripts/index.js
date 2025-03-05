@@ -1,6 +1,7 @@
 import Card from "../components/Card.js";
 import PopupWithForm from "../components/PopupWithForm.js";
 import PopupWithImage from "../components/PopupWithImage.js";
+import PopupWithConfirmation from "../components/PopupWithConfirmation.js";
 import Validator from "../components/Validator.js";
 import { api } from "../components/Api.js";
 
@@ -53,7 +54,12 @@ const popupFormProfile = new PopupWithForm("#popup-profile", (inputValues) => {
       userInfo.setUserInfo({ name: inputValues.name, job: inputValues.job });
     });
 });
-popupFormProfile.setEventListeners();
+
+const popupAvatarProfile = new PopupWithForm("#popup-avatar", (inputValues) => {
+  api.updateAvatar(inputValues.link).then(() => {
+    userInfo.setUserInfo({ link: inputValues.link });
+  });
+});
 
 const popupFormCards = new PopupWithForm("#popup-add", (inputValues) => {
   api.createCard(inputValues.title, inputValues.link).then((result) => {
@@ -76,17 +82,24 @@ const popupFormCards = new PopupWithForm("#popup-add", (inputValues) => {
   });
 });
 
-popupFormCards.setEventListeners();
-
 const popupImage = new PopupWithImage("#popup-image");
 
+const popupConfirmation = new PopupWithConfirmation("#popup-confirmation");
+
+popupFormProfile.setEventListeners();
+popupFormCards.setEventListeners();
 popupImage.setEventListener();
+popupAvatarProfile.setEventListeners();
+popupConfirmation.setEventListeners();
 
 profileButton.addEventListener("click", () => popupFormProfile.open());
 
 profileButtonAdd.addEventListener("click", () => {
   popupFormCards.open();
 });
+
+const pencilButton = document.querySelector(".profile__edit-pencil");
+pencilButton.addEventListener("click", () => popupAvatarProfile.open());
 
 openCardForm.addEventListener("click", function () {
   popupAddCard.classList.add(".popup_show");
