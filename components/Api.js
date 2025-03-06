@@ -18,7 +18,6 @@ class Api {
         return result;
       })
       .then((result) => {
-        document.querySelector(".profile__avatar").src = result.avatar;
         return result;
       });
   }
