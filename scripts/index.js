@@ -45,7 +45,11 @@ api.getUserInformation().then((result) => {
   });
 });
 
-const userInfo = new UserInfo(".profile__name", ".profile__occupation");
+const userInfo = new UserInfo(
+  ".profile__name",
+  ".profile__occupation",
+  ".profile__avatar"
+);
 
 const popupFormProfile = new PopupWithForm("#popup-profile", (inputValues) => {
   console.log(inputValues);
