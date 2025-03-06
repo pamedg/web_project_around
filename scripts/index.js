@@ -89,7 +89,18 @@ const popupFormCards = new PopupWithForm("#popup-add", (inputValues) => {
 
 const popupImage = new PopupWithImage("#popup-image");
 
-const popupConfirmation = new PopupWithConfirmation("#popup-confirmation");
+const popupConfirmation = new PopupWithConfirmation(
+  "#popup-confirmation",
+  () => {
+    api.deleteCard().then(() => {
+      popupConfirmation.close().then(() => {
+        popupConfirmation.deleteCard();
+      });
+    });
+  }
+);
+
+//card__bottom-trash//
 
 popupFormProfile.setEventListeners();
 popupFormCards.setEventListeners();
