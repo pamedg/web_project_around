@@ -1,7 +1,14 @@
 import { template } from "../scripts/utils.js";
 
 export default class Card {
-  constructor(data, handleCardClick, handleLike, handleRemoveCard) {
+  constructor(
+    data,
+    handleCardClick,
+    handleLike,
+    handleRemoveCard,
+    handleOpenConfirm
+  ) {
+    this._id = data._id;
     this._name = data.name;
     this._link = data.link;
     this._card = this.getTemplate();
@@ -10,6 +17,7 @@ export default class Card {
     this.handleCardClick = handleCardClick;
     this._handleLike = handleLike;
     this.handleDeleteLike = handleRemoveCard;
+    this.handleOpenConfirm = handleOpenConfirm;
   }
 
   getTemplate() {
@@ -41,7 +49,8 @@ export default class Card {
   }
 
   handleRemoveCard() {
-    this._card.remove();
+    //this._card.remove();
+    this.handleOpenConfirm(this._id);
   }
 
   setEventListeners() {

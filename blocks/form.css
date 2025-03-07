@@ -10,8 +10,9 @@
 .form {
   margin: auto;
   width: 430px;
-  height: 330px;
+  height: 272px;
   padding-top: 3rem;
+  border-radius: 20px;
 }
 
 .form__title {
@@ -35,6 +36,7 @@
   line-height: 16.94px;
   gap: 43px;
   margin-left: 40px;
+  border-radius: 20px;
 }
 
 .form__input_type_error {
@@ -64,6 +66,7 @@
   justify-content: center;
   align-items: center;
   line-height: 21.78px;
+  border-radius: 20px;
 }
 
 .form__button_disabled {

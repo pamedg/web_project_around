@@ -30,6 +30,9 @@ api.getInitialCards().then((initialCards) => {
       },
       () => {
         api.Dislike(item._id);
+      },
+      (cardId) => {
+        popupConfirmation.open(cardId);
       }
     );
     return instanciaDeCard.generateCard();
@@ -41,8 +44,9 @@ api.getUserInformation().then((result) => {
   userInfo.setUserInfo({
     name: result.name,
     job: result.about,
-    link: result.avatar,
   });
+
+  userInfo.setUserAvatar({ link: result.avatar });
 });
 
 const userInfo = new UserInfo(
@@ -62,7 +66,7 @@ const popupFormProfile = new PopupWithForm("#popup-profile", (inputValues) => {
 
 const popupAvatarProfile = new PopupWithForm("#popup-avatar", (inputValues) => {
   api.Avatar(inputValues.link).then(() => {
-    userInfo.setUserInfo({ link: inputValues.link });
+    userInfo.setUserAvatar({ link: inputValues.link });
   });
 });
 
@@ -91,8 +95,8 @@ const popupImage = new PopupWithImage("#popup-image");
 
 const popupConfirmation = new PopupWithConfirmation(
   "#popup-confirmation",
-  () => {
-    api.deleteCard().then(() => {
+  (cardId) => {
+    api.DeleteCard(cardId).then(() => {
       popupConfirmation.close().then(() => {
         popupConfirmation.deleteCard();
       });
@@ -107,6 +111,7 @@ popupFormCards.setEventListeners();
 popupImage.setEventListener();
 popupAvatarProfile.setEventListeners();
 popupConfirmation.setEventListeners();
+//popupConfirmation.open();
 
 profileButton.addEventListener("click", () => popupFormProfile.open());
 
