@@ -18,6 +18,7 @@ export default class Card {
     this._handleLike = handleLike;
     this.handleDeleteLike = handleRemoveCard;
     this.handleOpenConfirm = handleOpenConfirm;
+    this.handleRemoveCardElement = this.handleRemoveCardElement.bind(this);
   }
 
   getTemplate() {
@@ -48,9 +49,13 @@ export default class Card {
     this._isLiked = !this._isLiked;
   }
 
+  handleRemoveCardElement() {
+    this._card.remove();
+  }
+
   handleRemoveCard() {
     //this._card.remove();
-    this.handleOpenConfirm(this._id);
+    this.handleOpenConfirm(this._id, this.handleRemoveCardElement);
   }
 
   setEventListeners() {

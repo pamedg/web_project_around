@@ -31,8 +31,8 @@ api.getInitialCards().then((initialCards) => {
       () => {
         api.Dislike(item._id);
       },
-      (cardId) => {
-        popupConfirmation.open(cardId);
+      (cardId, handleRemoveCardElement) => {
+        popupConfirmation.open(cardId, handleRemoveCardElement);
       }
     );
     return instanciaDeCard.generateCard();
@@ -56,10 +56,11 @@ const userInfo = new UserInfo(
 );
 
 const popupFormProfile = new PopupWithForm("#popup-profile", (inputValues) => {
-  console.log(inputValues);
+  openCardForm.textContent = "Guardando...";
   api
     .updateUserInformation({ name: inputValues.name, about: inputValues.job })
     .then((result) => {
+      openCardForm.textContent = "Guardar";
       userInfo.setUserInfo({ name: inputValues.name, job: inputValues.job });
     });
 });
@@ -95,11 +96,10 @@ const popupImage = new PopupWithImage("#popup-image");
 
 const popupConfirmation = new PopupWithConfirmation(
   "#popup-confirmation",
-  (cardId) => {
+  (cardId, deleteCard) => {
     api.DeleteCard(cardId).then(() => {
-      popupConfirmation.close().then(() => {
-        popupConfirmation.deleteCard();
-      });
+      popupConfirmation.close();
+      deleteCard();
     });
   }
 );
@@ -142,6 +142,17 @@ const cardsFormValidation = new Validator(formCards, {
   inputErrorClass: "form__input_type_error",
 });
 
+/*const avatarFormValidation = new Validator(formAvatar, {
+  formSelector: ".popup__form",
+  inputSelector: ".form__input",
+  submitButtonSelector: ".form__button",
+  inactiveButtonClass: "form__button_disabled",
+  inputErrorClass: "form__input_type_error",
+});
+*/
+
 profileFormValidation.enableValidation();
 
 cardsFormValidation.enableValidation();
+
+/*avatarFormValidation.enableValidation();*/
