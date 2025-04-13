@@ -40,10 +40,8 @@ export default class Card {
   handleLike() {
     this._btnLike.classList.toggle("card__bottom-like_active");
     if (!this._isLiked) {
-      console.log("se debe llamar al quitar like");
       this._handleLike();
     } else {
-      console.log("se debe llamar al dar like");
       this.handleDeleteLike();
     }
     this._isLiked = !this._isLiked;

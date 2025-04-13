@@ -40,7 +40,6 @@ api.getInitialCards().then((initialCards) => {
 });
 
 api.getUserInformation().then((result) => {
-  console.log(result.avatar);
   userInfo.setUserInfo({
     name: result.name,
     job: result.about,
